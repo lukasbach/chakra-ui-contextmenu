@@ -26,16 +26,18 @@ import { ContextMenu } from 'chakra-ui-contextmenu';
 import { Box, Button, ChakraProvider } from '@chakra-ui/react';
 import { MenuList, MenuItem } from '@chakra-ui/menu';
 
-<ContextMenu renderMenu={() => (
-  <MenuList>
-    <MenuItem>Context Menu Item 1</MenuItem>
-    <MenuItem>Context Menu Item 2</MenuItem>
-  </MenuList>
-)}>
-  {ref => (
-    <div ref={ref}>Target</div>
-  )}
-</ContextMenu>
+render(
+  <ContextMenu renderMenu={() => (
+    <MenuList>
+      <MenuItem>Context Menu Item 1</MenuItem>
+      <MenuItem>Context Menu Item 2</MenuItem>
+    </MenuList>
+  )}>
+    {ref => (
+      <div ref={ref}>Target</div>
+    )}
+  </ContextMenu>
+);
 ```
 
 ## Usage with Typescript
@@ -44,16 +46,18 @@ When using Typescript, you can type the context menu component with the kind
 of target component to get better typings:
 
 ```typescript jsx
-<ContextMenu<HTMLDivElement> renderMenu={() => (
-  <MenuList>
-    <MenuItem>Context Menu Item 1</MenuItem>
-    <MenuItem>Context Menu Item 2</MenuItem>
-  </MenuList>
-)}>
-  {ref => (
-    <div ref={ref}>Target</div>
-  )}
-</ContextMenu>
+render(
+  <ContextMenu<HTMLDivElement> renderMenu={() => (
+    <MenuList>
+      <MenuItem>Context Menu Item 1</MenuItem>
+      <MenuItem>Context Menu Item 2</MenuItem>
+    </MenuList>
+  )}>
+    {ref => (
+      <div ref={ref}>Target</div>
+    )}
+  </ContextMenu>
+);
 ```
 
 ## Props
