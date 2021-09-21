@@ -18,16 +18,18 @@ export default {
         `}</style>
         {story()}
       </ChakraProvider>
-    )
-  ]
+    ),
+  ],
 } as ComponentMeta<typeof ContextMenu>;
 
-const Template: ComponentStory<typeof ContextMenu> = (args) => <ContextMenu<HTMLDivElement> {...args} />;
+const Template: ComponentStory<typeof ContextMenu> = args => <ContextMenu<HTMLDivElement> {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
   children: (ref: any) => (
-    <div ref={ref} style={{ cursor: 'default' }}>Right-click me!</div>
+    <div ref={ref} style={{ cursor: 'default' }}>
+      Right-click me!
+    </div>
   ),
   renderMenu: () => (
     <MenuList>
@@ -37,38 +39,50 @@ Default.args = {
       <MenuItem>Delete</MenuItem>
       <MenuItem>Attend a Workshop</MenuItem>
     </MenuList>
-  )
+  ),
 };
 
 export const MultipleTargets = () => (
   <div>
-    <ContextMenu<HTMLDivElement> renderMenu={() => (
-      <MenuList>
-        <MenuItem>Download</MenuItem>
-        <MenuItem>Create a Copy</MenuItem>
-      </MenuList>
-    )}>
+    <ContextMenu<HTMLDivElement>
+      renderMenu={() => (
+        <MenuList>
+          <MenuItem>Download</MenuItem>
+          <MenuItem>Create a Copy</MenuItem>
+        </MenuList>
+      )}
+    >
       {ref => (
-        <div ref={ref} style={{ cursor: 'default' }}>Target 1</div>
+        <div ref={ref} style={{ cursor: 'default' }}>
+          Target 1
+        </div>
       )}
     </ContextMenu>
-    <ContextMenu<HTMLDivElement> renderMenu={() => (
-      <MenuList>
-        <MenuItem>Mark as Draft</MenuItem>
-      </MenuList>
-    )}>
+    <ContextMenu<HTMLDivElement>
+      renderMenu={() => (
+        <MenuList>
+          <MenuItem>Mark as Draft</MenuItem>
+        </MenuList>
+      )}
+    >
       {ref => (
-        <div ref={ref} style={{ cursor: 'default' }}>Target 2</div>
+        <div ref={ref} style={{ cursor: 'default' }}>
+          Target 2
+        </div>
       )}
     </ContextMenu>
-    <ContextMenu<HTMLDivElement> renderMenu={() => (
-      <MenuList>
-        <MenuItem>Delete</MenuItem>
-        <MenuItem>Attend a Workshop</MenuItem>
-      </MenuList>
-    )}>
+    <ContextMenu<HTMLDivElement>
+      renderMenu={() => (
+        <MenuList>
+          <MenuItem>Delete</MenuItem>
+          <MenuItem>Attend a Workshop</MenuItem>
+        </MenuList>
+      )}
+    >
       {ref => (
-        <div ref={ref} style={{ cursor: 'default' }}>Target 3</div>
+        <div ref={ref} style={{ cursor: 'default' }}>
+          Target 3
+        </div>
       )}
     </ContextMenu>
   </div>
@@ -76,14 +90,18 @@ export const MultipleTargets = () => (
 
 export const Scrolling = () => (
   <Box h="2000px" pt="800px">
-    <ContextMenu<HTMLDivElement> renderMenu={() => (
-      <MenuList>
-        <MenuItem>Download</MenuItem>
-        <MenuItem>Create a Copy</MenuItem>
-      </MenuList>
-    )}>
+    <ContextMenu<HTMLDivElement>
+      renderMenu={() => (
+        <MenuList>
+          <MenuItem>Download</MenuItem>
+          <MenuItem>Create a Copy</MenuItem>
+        </MenuList>
+      )}
+    >
       {ref => (
-        <div ref={ref} style={{ cursor: 'default' }}>Target 1</div>
+        <div ref={ref} style={{ cursor: 'default' }}>
+          Target 1
+        </div>
       )}
     </ContextMenu>
   </Box>
@@ -91,18 +109,20 @@ export const Scrolling = () => (
 
 export const ClickOtherTarget = () => (
   <>
-    <ContextMenu<HTMLDivElement> renderMenu={() => (
-      <MenuList>
-        <MenuItem>Download</MenuItem>
-        <MenuItem>Create a Copy</MenuItem>
-      </MenuList>
-    )}>
+    <ContextMenu<HTMLDivElement>
+      renderMenu={() => (
+        <MenuList>
+          <MenuItem>Download</MenuItem>
+          <MenuItem>Create a Copy</MenuItem>
+        </MenuList>
+      )}
+    >
       {ref => (
-        <div ref={ref} style={{ cursor: 'default' }}>Context Menu Target</div>
+        <div ref={ref} style={{ cursor: 'default' }}>
+          Context Menu Target
+        </div>
       )}
     </ContextMenu>
-    <Button onClick={() => alert("Click received!")}>
-      Click me while the context menu is open!
-    </Button>
+    <Button onClick={() => alert('Click received!')}>Click me while the context menu is open!</Button>
   </>
 );

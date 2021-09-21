@@ -26,9 +26,9 @@ const config: webpack.Configuration = {
     libraryTarget: 'umd',
   },
   externals: {
-    'react': 'react',
+    react: 'react',
     'react-dom': 'reactDOM',
-    '@chakra-ui/react': 'chakraUiReact'
+    '@chakra-ui/react': 'chakraUiReact',
   },
 };
 

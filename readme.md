@@ -27,15 +27,15 @@ import { Box, Button, ChakraProvider } from '@chakra-ui/react';
 import { MenuList, MenuItem } from '@chakra-ui/menu';
 
 render(
-  <ContextMenu renderMenu={() => (
-    <MenuList>
-      <MenuItem>Context Menu Item 1</MenuItem>
-      <MenuItem>Context Menu Item 2</MenuItem>
-    </MenuList>
-  )}>
-    {ref => (
-      <div ref={ref}>Target</div>
+  <ContextMenu
+    renderMenu={() => (
+      <MenuList>
+        <MenuItem>Context Menu Item 1</MenuItem>
+        <MenuItem>Context Menu Item 2</MenuItem>
+      </MenuList>
     )}
+  >
+    {ref => <div ref={ref}>Target</div>}
   </ContextMenu>
 );
 ```
@@ -47,15 +47,15 @@ of target component to get better typings:
 
 ```typescript jsx
 render(
-  <ContextMenu<HTMLDivElement> renderMenu={() => (
-    <MenuList>
-      <MenuItem>Context Menu Item 1</MenuItem>
-      <MenuItem>Context Menu Item 2</MenuItem>
-    </MenuList>
-  )}>
-    {ref => (
-      <div ref={ref}>Target</div>
+  <ContextMenu<HTMLDivElement>
+    renderMenu={() => (
+      <MenuList>
+        <MenuItem>Context Menu Item 1</MenuItem>
+        <MenuItem>Context Menu Item 2</MenuItem>
+      </MenuList>
     )}
+  >
+    {ref => <div ref={ref}>Target</div>}
   </ContextMenu>
 );
 ```
