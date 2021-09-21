@@ -2,7 +2,7 @@ import * as React from 'react';
 import { MutableRefObject, useEffect, useRef, useState } from 'react';
 import { useEventListener, Portal, Menu, MenuButton } from '@chakra-ui/react';
 
-export interface ContextMenuProps<T> {
+export interface ContextMenuProps<T extends HTMLElement> {
   renderMenu: () => JSX.Element | null;
   children: (ref: MutableRefObject<T | null>) => JSX.Element | null;
 }
@@ -32,7 +32,7 @@ export function ContextMenu<T extends HTMLElement = HTMLElement>(props: ContextM
   }, [isOpen]);
 
   useEventListener('contextmenu', e => {
-    if (targetRef.current?.contains(e.target as any) && e.target === targetRef.current) {
+    if (targetRef.current?.contains(e.target as any) || e.target === targetRef.current) {
       e.preventDefault();
       setIsOpen(true);
       setPosition([e.pageX, e.pageY]);
@@ -59,6 +59,7 @@ export function ContextMenu<T extends HTMLElement = HTMLElement>(props: ContextM
                 position: 'absolute',
                 left: position[0],
                 top: position[1],
+                cursor: 'default'
               }}
             />
             { props.renderMenu() }

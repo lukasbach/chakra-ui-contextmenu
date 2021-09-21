@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ContextMenu } from './ContextMenu';
-import { Box, Button, ChakraProvider, Menu } from '@chakra-ui/react';
-import { MenuList, MenuItem, MenuButton } from '@chakra-ui/menu';
+import { Box, Button, ChakraProvider } from '@chakra-ui/react';
+import { MenuList, MenuItem } from '@chakra-ui/menu';
 
 export default {
   title: 'Context Menu',
