@@ -1,10 +1,14 @@
 import * as React from 'react';
-import { MutableRefObject, useEffect, useRef, useState } from 'react';
-import { useEventListener, Portal, Menu, MenuButton } from '@chakra-ui/react';
+import { MutableRefObject, useCallback, useEffect, useRef, useState } from 'react';
+import { useEventListener, Portal, Menu, MenuButton, PortalProps, MenuButtonProps } from '@chakra-ui/react';
+import { MenuProps } from '@chakra-ui/menu/dist/types/menu';
 
 export interface ContextMenuProps<T extends HTMLElement> {
   renderMenu: () => JSX.Element | null;
   children: (ref: MutableRefObject<T | null>) => JSX.Element | null;
+  menuProps?: MenuProps;
+  portalProps?: PortalProps;
+  menuButtonProps?: MenuButtonProps;
 }
 
 export function ContextMenu<T extends HTMLElement = HTMLElement>(props: ContextMenuProps<T>) {
@@ -41,15 +45,21 @@ export function ContextMenu<T extends HTMLElement = HTMLElement>(props: ContextM
     }
   });
 
+  const onCloseHandler = useCallback(() => {
+    props.menuProps?.onClose?.();
+    setIsOpen(false);
+  }, [props.menuProps?.onClose, setIsOpen]);
+
   return (
     <>
       { props.children(targetRef) }
       {isRendered && (
-        <Portal>
+        <Portal {...props.portalProps}>
           <Menu
             isOpen={isDeferredOpen}
-            onClose={() => setIsOpen(false)}
             gutter={0}
+            {...props.menuProps}
+            onClose={onCloseHandler}
           >
             <MenuButton
               aria-hidden={true}
@@ -61,6 +71,7 @@ export function ContextMenu<T extends HTMLElement = HTMLElement>(props: ContextM
                 top: position[1],
                 cursor: 'default'
               }}
+              {...props.menuButtonProps}
             />
             { props.renderMenu() }
           </Menu>

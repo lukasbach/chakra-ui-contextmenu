@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { LegacyRef } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ContextMenu } from './ContextMenu';
 import { Box, Button, ChakraProvider } from '@chakra-ui/react';
@@ -22,11 +22,11 @@ export default {
   ]
 } as ComponentMeta<typeof ContextMenu>;
 
-const Template: ComponentStory<typeof ContextMenu> = (args) => <ContextMenu {...args} />;
+const Template: ComponentStory<typeof ContextMenu> = (args) => <ContextMenu<HTMLDivElement> {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
-  children: ref => (
+export const Default = Template.bind({});
+Default.args = {
+  children: (ref: any) => (
     <div ref={ref} style={{ cursor: 'default' }}>Right-click me!</div>
   ),
   renderMenu: () => (
@@ -75,7 +75,7 @@ export const MultipleTargets = () => (
 );
 
 export const Scrolling = () => (
-  <Box h="200%" pt="100%">
+  <Box h="2000px" pt="800px">
     <ContextMenu<HTMLDivElement> renderMenu={() => (
       <MenuList>
         <MenuItem>Download</MenuItem>
