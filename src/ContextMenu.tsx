@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { MutableRefObject, useCallback, useEffect, useRef, useState } from 'react';
-import { useEventListener, Portal, Menu, MenuButton, PortalProps, MenuButtonProps } from '@chakra-ui/react';
-import { MenuProps } from '@chakra-ui/menu/dist/types/menu';
+import { useEventListener, Portal, Menu, MenuButton, PortalProps, MenuButtonProps, MenuProps } from '@chakra-ui/react';
 
 export interface ContextMenuProps<T extends HTMLElement> {
   renderMenu: () => JSX.Element | null;
