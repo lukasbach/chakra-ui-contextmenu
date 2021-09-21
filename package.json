@@ -1,0 +1,71 @@
+{
+  "name": "chakra-ui-contextmenu",
+  "version": "1.0.0",
+  "description": "Context Menu component for Chakra UI",
+  "keywords": [],
+  "sideEffects": false,
+  "author": "Lukas Bach <lbach@outlook.de>",
+  "homepage": "https://github.com/lukasbach/chakra-ui-contextmenu",
+  "license": "MIT",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/types/index.d.ts",
+  "typings": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./lib/cjs/index.js",
+      "default": "./lib/esm/index.js"
+    }
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukasbach/chakra-ui-contextmenu.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lukasbach/chakra-ui-contextmenu/issues"
+  },
+  "scripts": {
+    "prebuild": "rimraf lib",
+    "build": "run-p \"build:*\"",
+    "build:cjs": "tsc -m commonjs --outDir lib/cjs",
+    "build:esm": "tsc -m es2015 --outDir lib/esm",
+    "build:esnext": "tsc -m esnext --outDir lib/esnext",
+    "build:bundle": "webpack",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@chakra-ui/react": "^1.6.7",
+    "@chakra-ui/system": "^1.7.3",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@lukasbach/tsconfig": "^0.1.0",
+    "@storybook/addon-actions": "^6.3.8",
+    "@storybook/addon-essentials": "^6.3.8",
+    "@storybook/addon-links": "^6.3.8",
+    "@storybook/react": "^6.3.8",
+    "babel-loader": "^8.2.2",
+    "framer-motion": "^4.1.17",
+    "loader-utils": "^2.0.0",
+    "npm-run-all": "^4.1.5",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.2",
+    "rimraf": "^3.0.2",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.3",
+    "webpack": "^5.53.0",
+    "webpack-cli": "^4.8.0",
+    "ts-node": "^10.2.1"
+  },
+  "peerDependencies": {
+    "@chakra-ui/react": ">=1.6.7",
+    "react": ">=16.8.6"
+  }
+}
