@@ -31,6 +31,7 @@
     "url": "https://github.com/lukasbach/chakra-ui-contextmenu/issues"
   },
   "scripts": {
+    "prepack": "yarn build",
     "prebuild": "rimraf lib",
     "build": "run-p \"build:*\"",
     "build:cjs": "tsc -m commonjs --outDir lib/cjs",
