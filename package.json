@@ -22,8 +22,8 @@
   "license": "MIT",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
-  "types": "lib/types/index.d.ts",
-  "typings": "lib/types/index.d.ts",
+  "types": "lib/esm/index.d.ts",
+  "typings": "lib/esm/index.d.ts",
   "exports": {
     ".": {
       "require": "./lib/cjs/index.js",
