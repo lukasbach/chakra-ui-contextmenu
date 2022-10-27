@@ -5,8 +5,8 @@ import { useEventListener, Portal, Menu, MenuButton, PortalProps, MenuButtonProp
 export interface ContextMenuProps<T extends HTMLElement> {
   renderMenu: () => JSX.Element | null;
   children: (ref: MutableRefObject<T | null>) => JSX.Element | null;
-  menuProps?: MenuProps;
-  portalProps?: PortalProps;
+  menuProps?: Omit<MenuProps, 'children'> & { children?: React.ReactNode };
+  portalProps?: Omit<PortalProps, 'children'> & { children?: React.ReactNode };
   menuButtonProps?: MenuButtonProps;
 }
 
